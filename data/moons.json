@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Solinari",
+        "robe": "white",
+        "daysPerCycle": 36,
+        "radialOrigin": 0,
+        "startingPosition": 5,
+        "color": "rgba(87, 116, 146, 0.2)",
+        "activeColor": "rgba(87, 116, 146, 1)"
+    },
+    {
+        "name": "Lunitari",
+        "robe": "red",
+        "daysPerCycle": 28,
+        "radialOrigin": 0,
+        "startingPosition": 6,
+        "color": "rgba(183, 73, 52, 0.2)",
+        "activeColor": "rgba(183, 73, 52, 1)"
+    },
+    {
+        "name": "Nuitari",
+        "robe": "black",
+        "daysPerCycle": 8,
+        "radialOrigin": 0,
+        "startingPosition": 4,
+        "color": "rgba(51, 44, 47, 0.2)",
+        "activeColor": "rgba(51, 44, 47, 1)"
+    }
+]

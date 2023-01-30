@@ -1,0 +1,66 @@
+on day 119, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 119, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 232, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 232, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 243, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 243, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 366, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 366, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 489, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 489, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 500, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 500, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 623, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 623, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 736, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 736, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 747, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 747, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 870, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 870, the night of the eye occured!! 
+[Array[2], Array[2], Array[2]]
+ app.js:52
+on day 993, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48
+on day 993, there were two alignments! 
+[Array[2], Array[2]]
+ app.js:48

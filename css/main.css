@@ -1,0 +1,202 @@
+/* General */
+.clear {
+  clear: both;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #A8A8A1;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #A8A8A1;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 900px; /*730px*/
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.jumbotron {
+  color: #d4d8d1;
+  background-color: slategray;
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #A8A8A1;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin-top: 40px;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 15px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* === Logo === */
+.header-logo {
+  height: 40px;
+  margin-right: 5px; 
+}
+
+.company-name {
+  vertical-align: bottom;
+  font-weight:normal;
+  color:#577492;
+  letter-spacing:1pt;
+  word-spacing:2pt;
+  font-size:30px;
+  text-align:left;
+  font-family:arial black, sans-serif;
+  line-height:1;
+}
+
+/* === Moon Tracker Styles === */
+.moon-tracker-container {
+  margin-top: .5em;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border:1px solid darkgray;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  background-color: ivory;
+}
+
+#moon-tracker {
+  min-height: 150px;
+  min-width: 150px;
+}
+
+.moon-tracker-details {
+  margin-top: .5em;
+  padding: 1em;
+  text-align: left;
+  border:1px solid darkgray;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  background-color: ivory;
+}
+
+/* === Toolbar === */
+.toolbar-container
+{
+  display: inline-block;
+}
+
+.toolbar
+{
+  position: relative;
+  display: table;
+}
+
+.toolbar > div
+{
+  display: table-cell;
+  vertical-align: top;
+}
+
+.toolbar .control-group {
+  margin-top: 8px;
+}
+
+/* === misc === */
+.panel-body > table,
+.well > table {
+  margin-bottom: 0;
+}
+
+.wait_overlay {
+  background: rgb(205, 219, 249) url(../assets/img/wait_icon2.gif) no-repeat 49% 45%;
+  display:none;
+  overflow: auto;
+  position: fixed;
+  height:100%;
+  width:100%;
+  top: 0;
+  left: 0;
+  opacity:0.5;
+  filter:alpha(opacity=50); /* For IE8 and earlier */
+  z-index:995;
+  border-radius: 10px; /* to match the parent */
+}
+
+.form-control {
+  color: black;
+}
+
+#datetimepicker .input-group-addon:hover {
+  color: #333333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.intersection-date {
+  float: left;
+}
+
+.intersection-moon {
+  float: right;
+  margin: 0 4px;
+}
+
+.intersection-moon.night-of-the-eye {
+  font-weight: bold;
+}

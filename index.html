@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="Scott Vossen" content="Dyceware, Inc.">
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<title>Dyceware • Moon Phases</title>
+
+	<!-- styling -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <div class="alert alert-danger" role="alert">You are using a really crappy browser. It's not my fault this doens't work.</div>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <img src="assets/img/Dyceware-logo-500x500.jpg" alt="Dyceware Logo" class="img-rounded header-logo">
+      <span class="company-name visible-sm-inline visible-md-inline visible-lg-inline">Dyceware</span>
+    </div><!-- /Header -->
+
+    <div class="jumbotron">
+      <h1>The Moons of Krynn</h1>
+      <p class="lead">For any Wizard of High Sorcery, tracking the effects of the moons on the day to day working of magic is essential.</p>
+    </div>
+
+    <!-- Moon Calendar Section -->
+    <div class="row">
+      <div class="col-md-7">
+
+        <div class="moon-tracker-container">
+          <div id="moon-tracker" data-height="500" data-width="500"></div>
+
+          <div class="toolbar-container">
+            <div class="toolbar">
+              <div class="row">
+                <div class="col-sm-6 control-group">
+                  <div class="btn-group">
+                    <button id="regress-fast" type="button" class="btn btn-default btn-default">
+                      <span class="glyphicon glyphicon-fast-backward"></span>
+                    </button>
+                    <button id="regress" type="button" class="btn btn-default btn-default">
+                       <span class="glyphicon glyphicon-backward"></span>
+                    </button>
+                    <button id="progress" type="button" class="btn btn-default btn-default">
+                       <span class="glyphicon glyphicon-forward"></span>
+                    </button>
+                    <button id="progress-fast" type="button" class="btn btn-default btn-default">
+                      <span class="glyphicon glyphicon-fast-forward"></span>
+                    </button>
+                  </div>     
+                </div>
+
+                <div class="col-sm-6 control-group">
+                  <!-- http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+                  <div id="datetimepicker" class='input-group date' data-date-format="MM/DD/YY">
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>                
+                </div>
+              </div>
+            </div>
+          </div><!-- /.toolbar-container -->
+
+        </div> <!-- /.moon-tracker-container -->
+
+      </div>
+
+      <div class="col-md-5">
+        <div class="moon-tracker-details">
+          <div data-bind="template: { name: 'moon_calendar_details_template', data: details }"></div>
+        </div>
+      </div>
+
+      <div id="calendarLoadingOverlay" class="wait_overlay"></div>
+    </div><!-- /Moon Calendar Section -->
+
+    <div class="row marketing">
+      <div class="col-lg-12">
+        <div class=well>
+          <h4>Krynn's Sky</h4>
+          <p>There are three moons on the planet of Krynn, and each is the face of one of the gods of magic. They chose not to put themselves in stars or planets, but to be as close to Krynn as possible so as to watch it. Wizards of High Sorcery draw power from these moons and their respective gods. The moons are the white moon Solinari, representing the god of good magic, the red moon Lunitari, representing the god of neutral magic, and the black moon Nuitari, representing the god of evil magic. Nuitari as a moon is little known; it can only be seen by those who use it for their magic. Most people believe in only two moons, Solinari and Lunitari.</p>
+          <p>In addition, the other gods of evil and of good have a constellation representing them, whereas the other gods of neutrality, aside from Gilean, who has a constellation, have planets.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>Moon Alignment Effects</h4>
+          <p>If the moons themselves are in alignment, additional modifiers apply to the various robes. The following modifiers are cumulative with those from the Moon Phase Effects Table. On the Night of the Eye, when all moons are in alignment at High Sanction, this results in a +3 saving throw bonus, +4 additional spells and +2 effective level when casting spells.</p>
+          <div class="well">
+            <table class="table table-striped table-bordered">
+                <tr class="header">
+                  <th><span class="visible-sm">Alignment</span><span class="hidden-sm visible-md visible-lg">Align</span></th>
+                  <th><span class="visible-sm">Saving Throw</span><span class="hidden-sm visible-md visible-lg">Save</span></th>
+                  <th><span class="visible-sm">Additional Spells</span><span class="hidden-sm visible-md visible-lg">Addl Spell</span></th>
+                  <th><span class="visible-sm">Effective Level</span><span class="hidden-sm visible-md visible-lg">Eff Lvl</span></th>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="visible-sm">Solinari and Lunitari</span>
+                    <span class="hidden-sm visible-md visible-lg">Sol & Lun</span>
+                  </td>
+                  <td>+1</td>
+                  <td>+1</td>
+                  <td>+1</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="visible-sm">Nuitari and Lunitari</span>
+                    <span class="hidden-sm visible-md visible-lg">Nui & Lun</span>
+                  </td>
+                  <td>+1</td>
+                  <td>+1</td>
+                  <td>+1</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="visible-sm">Solinari and Nuitari</span>
+                    <span class="hidden-sm visible-md visible-lg">Sol & Nui</span>
+                  </td>
+                  <td>+1</td>
+                  <td>0</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="visible-sm">All Three Moons</span>
+                    <span class="hidden-sm visible-md visible-lg">All</span>
+                  </td>
+                  <td>+2</td>
+                  <td>+2</td>
+                  <td>+1</td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>Moon Phase Effects</h4>
+          <p>The following table indicates the effect that the phase of a moon has on the corresponding robes of the magic user. The phases of each moon only affect wizards of the corresponding colored robes, though there is an effect if the moons are in alignment (see Moon Alignment Effects).</p>
+          <div class="well">          
+            <table class="table table-striped table-bordered">
+              <tr class="header">
+                <th><span class="visible-sm">Moon Phase</span><span class="hidden-sm visible-md visible-lg">Phase</span></th>
+                <th><span class="visible-sm">Saving Throw</span><span class="hidden-sm visible-md visible-lg">Save</span></th>
+                <th><span class="visible-sm">Additional Spells</span><span class="hidden-sm visible-md visible-lg">Addl Spell</span></th>
+                <th><span class="visible-sm">Effective Level</span><span class="hidden-sm visible-md visible-lg">Eff Lvl</span></th>
+              </tr>
+              <tr>
+                <td>Low Sanction</td>
+                <td>-1</td>
+                <td>0</td>
+                <td>-1</td>
+              </tr>
+              <tr>
+                <td>Waning</td>
+                <td>Normal</td>
+                <td>0</td>
+                <td>Even</td>
+              </tr>
+              <tr>
+                <td>Waxing</td>
+                <td>Normal</td>
+                <td>+1</td>
+                <td>Even</td>
+              </tr>
+              <tr>
+                <td>High Sanction</td>
+                <td>+1</td>
+                <td>+2</td>
+                <td>+1*</td>
+              </tr>
+              <tr>
+                <td colspan="4">
+                  <small>*Only available to wizards 6th level or higher with Intelligence scores of 15 or better. Additional spells may be of any level the wizard can cast.</small>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>Wizards of High Sorcery</h4>
+          <p>The Wizards of High Sorcery stand as the oldest, most feared, and most respected of all the orders of the world of Krynn. These wizards draw upon the focused arcane magic granted by the moons and the gods of magic associated with those moons.</p>
+          <p>When the gods of magic first formed the orders, wizards were taught the <strong>Foundations of Wizardry</strong>:</p>
+          <ul>
+            <li>All wizards are brothers and sisters in their order. All orders are brothers and sisters in the power.</li>
+            <li>The places of High Sorcery are held in common among all orders and no sorcery is to be used there in anger against fellow wizards.</li>
+            <li>The world beyond the walls of the towers may bring brother against sister and order against order, but such is the way of the universe.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>Test of High Sorcery</h4>
+          <p>Wizards begin their training at an early age, usually under the tutelage of a tutor or within the halls of a wizard academy. Such training weeds out those who are not serious about the Art, and prepares those with the gift for magic for the time that they must take the <a href="http://dragonlancenexus.com/lexicon/index.php?title=Test_of_High_Sorcery" title="Test of High Sorcery">Test of High Sorcery</a>.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>The Conclave of Wizards</h4>
+          <p>The <a href="http://dragonlancenexus.com/lexicon/index.php?title=Conclave_of_Wizards" title="Conclave of Wizards">Conclave of Wizards</a> is the governing body of the Wizards of High Sorcery. The Conclave consists of seven members of each of the three orders. Each Order selects one of the seven Conclave members to be the Master of that order.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>Orders</h4>
+          <ul>
+            <li><a href="http://dragonlancenexus.com/lexicon/index.php?title=Order_of_the_Black_Robes" title="Order of the Black Robes">Order of the Black Robes</a></li>
+            <li><a href="http://dragonlancenexus.com/lexicon/index.php?title=Order_of_the_Red_Robes" title="Order of the Red Robes">Order of the Red Robes</a></li>
+            <li><a href="http://dragonlancenexus.com/lexicon/index.php?title=Order_of_the_White_Robes" title="Order of the White Robes">Order of the White Robes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class=well>
+          <h4>Renegades</h4>
+          <p>Arcane spellcasters who do not follow the tenets of the Wizards of High Sorcery are branded renegades. While renegade wizards draw their power from High Sorcery, their magic is not affected by the moons. These renegades are classified as <a href="http://dragonlancenexus.com/lexicon/index.php?title=Brown_Robes" title="Brown Robes">Brown Robes</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+     <p>&copy; Dyceware 2014</p>
+    </div>
+  </div> <!-- /container -->
+
+
+  <!-- Templates
+  ===================================================== -->  
+  <script type="text/html" id="moon_calendar_details_template">
+
+    <!--<div data-bind="if: present.hasIntersections">-->
+      <div class="panel panel-success-dark">
+        <div class="panel-heading">
+          <h3 class="panel-title">Current Intersections</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <span class="intersection-date" data-bind="text: present.date"></span>
+            <!-- ko if: present.intersections().length >= 3 -->
+                <span class="intersection-moon night-of-the-eye">Night of the Eye</span>
+            <!-- /ko -->
+
+            <!-- ko if: present.intersections().length < 3 -->
+              <!-- ko foreach: { data: present.intersections, as: 'intersection' } -->
+                <!-- ko foreach: { data: intersection, as: 'moon' } -->
+                    <span class="intersection-moon" data-bind="text: moon"></span>
+                <!-- /ko -->
+              <!-- /ko -->
+            <!-- /ko -->
+          </p>
+
+          <table class="table table-striped table-bordered">
+            <tr class="header">
+              <th>Robe</th>
+              <th><span class="visible-sm">Saving Throw</span><span class="hidden-sm visible-md visible-lg">Save</span></th>
+              <th><span class="visible-sm">Additional Spells</span><span class="hidden-sm visible-md visible-lg">Addl Spell</span></th>
+              <th><span class="visible-sm">Effective Level</span><span class="hidden-sm visible-md visible-lg">Eff Lvl</span></th>
+            </tr>
+            <tr>
+              <td>White</td>
+              <td><span data-bind="text: bonuses.white.savingThrow"></span></td>
+              <td><span data-bind="text: bonuses.white.additionalSpells"></span></td>
+              <td><span data-bind="text: bonuses.white.effectiveLevel"></span></td>
+            </tr>
+            <tr>
+              <td>Red</td>
+              <td><span data-bind="text: bonuses.red.savingThrow"></span></td>
+              <td><span data-bind="text: bonuses.red.additionalSpells"></span></td>
+              <td><span data-bind="text: bonuses.red.effectiveLevel"></span></td>
+            </tr>
+            <tr>
+              <td>Black</td>
+              <td><span data-bind="text: bonuses.black.savingThrow"></span></td>
+              <td><span data-bind="text: bonuses.black.additionalSpells"></span></td>
+              <td><span data-bind="text: bonuses.black.effectiveLevel"></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <!--</div>-->
+
+    <!--
+    <div data-bind="ifnot: present.hasIntersections">
+      <div class="panel panel-danger-dark">
+        <div class="panel-heading">
+          <h3 class="panel-title">Current Intersections</h3>
+        </div>
+        <div class="panel-body">
+          <p>None</p>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Upcoming Intersections</h3>
+      </div>
+      <div class="panel-body">
+        <!-- ko foreach: { data: future, as: 'alignment' } -->
+        <p>
+            <span class="intersection-date" data-bind="text: alignment.date"></span>
+            <!-- ko if: alignment.intersections.length >= 3 -->
+                <span class="intersection-moon night-of-the-eye">Night of the Eye</span>
+            <!-- /ko -->
+
+            <!-- ko if: alignment.intersections.length < 3 -->
+              <!-- ko foreach: { data: alignment.intersections, as: 'intersection' } -->
+                <!-- ko foreach: { data: intersection, as: 'moon' } -->
+                    <span class="intersection-moon" data-bind="text: moon"></span>
+                <!-- /ko -->
+              <!-- /ko -->
+            <!-- /ko -->
+        </p>
+        <div class="clear"></div>
+        <!-- /ko -->
+        <hr>
+        <span class="intersection-date" data-bind="text: nightOfTheEye"></span>
+        <span class="intersection-moon night-of-the-eye">Night of the Eye</span>
+      </div>
+    </div>
+    <div class="panel panel-warning-dark">
+      <div class="panel-heading">
+        <h3 class="panel-title">Previous Intersections</h3>
+      </div>
+      <div class="panel-body">
+        <!-- ko foreach: { data: past, as: 'alignment' } -->
+        <p>
+            <span class="intersection-date" data-bind="text: alignment.date"></span>
+            <!-- ko if: alignment.intersections.length >= 3 -->
+                <span class="intersection-moon night-of-the-eye">Night of the Eye</span>
+            <!-- /ko -->
+
+            <!-- ko if: alignment.intersections.length < 3 -->
+              <!-- ko foreach: { data: alignment.intersections, as: 'intersection' } -->
+                <!-- ko foreach: { data: intersection, as: 'moon' } -->
+                    <span class="intersection-moon" data-bind="text: moon"></span>
+                <!-- /ko -->
+              <!-- /ko -->
+            <!-- /ko -->
+        </p>
+        <div class="clear"></div>
+        <!-- /ko -->
+      </div>
+    </div>
+  </script>
+
+  <!-- Javascript Files
+  ===================================================== -->
+
+  <!-- third party -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/kineticjs/5.0.6/kinetic.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
+
+  <!-- local scripts -->
+  <script type="text/javascript" src="js/Dyceware.MoonCalendar.DAL.js"></script>
+  <script type="text/javascript" src="js/Dyceware.MoonCalendar.DateTracker.js"></script>
+  <script type="text/javascript" src="js/Dyceware.MoonCalendar.MoonCalendar.js"></script>
+  <script type="text/javascript" src="js/Dyceware.MoonCalendar.MoonCalendarAdmin.js"></script>
+
+  <!-- Load json data manually due to hosting limitations -->
+  <script type="text/javascript" src="js/moons.js"></script>
+  <script type="text/javascript" src="js/phases.js"></script>
+
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
